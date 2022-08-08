@@ -1,3 +1,53 @@
+// https://www.typescriptlang.org/zh/tsconfig https://www.tslang.cn/docs/handbook/tsconfig-json.html
 {
-  "extends": "./src/.umi/tsconfig.json"
+  "compileOnSave": true,                              // 用于 IDE 保存时是否生成编译后的文件
+  "compilerOptions": {
+    "target": "ESNext",                               // 目标语言的版本
+    "module": "ESNext",                               // 生成代码的模块标准
+    "moduleResolution": "Node",                       // 模块解析策略
+    "strict": true,                                   // 开启所有严格的类型检查
+    "forceConsistentCasingInFileNames": true,         // 强制文件名保持一致
+    "allowSyntheticDefaultImports": true,             // 允许合成默认导入
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],                                                // TS 需要引用的库，即声明文件
+    "jsx": "react-jsx",                               // jsx
+    "baseUrl": ".",                                   // 基准目录
+    "allowJs": false,                                 // 允许编译：（js、jsx)文件
+    "sourceMap": true,                                // 生成相应的 .map文件
+    "resolveJsonModule": true,                        // json文件操作, 允许import settings from "./settings.json"
+    "esModuleInterop": true,                          // ES 模块互操作性
+    "noUnusedLocals": true,                           // 报告未使用的局部变量的错误
+    "noUnusedParameters": true,                       // 报告函数中未使用参数的错误
+    "noFallthroughCasesInSwitch": true,               // 报告switch语句的fallthrough错误。（即，不允许switch的case语句贯穿）
+    "experimentalDecorators": true,                   // 对decorator的实验支持
+    "types": [
+      "vite/client",
+      "jest"
+    ],                                                // 要包含的类型声明文件名列表
+    "skipLibCheck": true,                             // 忽略所有的声明文件（ *.d.ts）的类型检查
+    "isolatedModules": true,                          // 将每个文件作为单独的模块（与“ts.transpileModule”类似）
+    "noEmit": true,                                   // 不生成输出文件
+    "paths": {                                 // 路径设置
+      "@/*": ["src/*"]
+    }
+  },
+  // 用于表示 ts 排除的文件
+  "exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js", "*.js"],
+  // 用于表示 ts 管理的文件
+  "include": [
+    "tests/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "mock/**/*.ts",
+    "vite.config.ts"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
