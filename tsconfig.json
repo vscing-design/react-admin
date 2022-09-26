@@ -12,7 +12,8 @@
     "lib": [
       "DOM",
       "DOM.Iterable",
-      "ESNext"
+      "ESNext",
+      "WebWorker"
     ],                                                // TS 需要引用的库，即声明文件
     "jsx": "react-jsx",                               // jsx
     "baseUrl": ".",                                   // 基准目录
@@ -25,8 +26,7 @@
     "noFallthroughCasesInSwitch": true,               // 报告switch语句的fallthrough错误。（即，不允许switch的case语句贯穿）
     "experimentalDecorators": true,                   // 对decorator的实验支持
     "types": [
-      "vite/client",
-      "jest"
+      "vite/client"
     ],                                                // 要包含的类型声明文件名列表
     "skipLibCheck": true,                             // 忽略所有的声明文件（ *.d.ts）的类型检查
     "isolatedModules": true,                          // 将每个文件作为单独的模块（与“ts.transpileModule”类似）
@@ -49,5 +49,6 @@
     "mock/**/*.ts",
     "vite.config.ts"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  // TODO 此处references配置问题
+  // "references": [{ "path": "./tsconfig.node.json" }]
 }

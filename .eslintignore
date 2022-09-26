@@ -4,6 +4,8 @@ node_modules
 *.woff
 *.ttf
 .vscode
+/config
+/script
 .idea
 dist
 /public
